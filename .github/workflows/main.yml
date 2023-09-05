@@ -28,5 +28,7 @@ jobs:
       run: ssh -i .ssh/id_rrr ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && cd ../ && mkdir random_stuffs"
     - name: cleanups
       run: rm -rf .ssh/
+    - name: maybe connect?
+      run: ssh -i .ssh/id_rrr ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
     - name: check namespace
       run: pwd && cd && pwd && cd /home/ && ls
