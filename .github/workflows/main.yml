@@ -25,10 +25,14 @@ jobs:
     - name: connect and pull
       run: ssh -i .ssh/id_rrr ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
     - name: random stuff
-      run: ssh -i .ssh/id_rrr ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && cd ../ && mkdir random_stuff"
+      run: ssh -i .ssh/id_rrr ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && cd ../ && mkdir random_stuf"
     # - name: cleanups
     #   run: rm -rf .ssh/
     - name: maybe connect?
-      run: ssh -i .ssh/id_rrr ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+      run: |
+        ssh -i .ssh/id_rrr ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+        pwd && cd && pwd && cd /home/ && ls
     - name: check namespace
       run: pwd && cd && pwd && cd /home/ && ls
+    - name: cleanups
+      run: rm -rf .ssh/
