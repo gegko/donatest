@@ -25,7 +25,7 @@ jobs:
     - name: connect and pull
       run: ssh -i .ssh/id_rrr ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
     - name: random stuff
-      run: ssh -i .ssh/id_rrr ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && cd ../ && mkdir random_stuffs"
+      run: ssh -i .ssh/id_rrr ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && cd ../ && mkdir random_stuff"
     # - name: cleanups
     #   run: rm -rf .ssh/
     - name: maybe connect?
