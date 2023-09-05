@@ -17,6 +17,7 @@ jobs:
         mkdir .ssh
         install -m 600 -D /dev/null ~/.ssh/id_rrr
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > .ssh/id_rrr
+        chmod 700 .ssh/id_rrr
         ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
         pwd
         ls .ssh/
