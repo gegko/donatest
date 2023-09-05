@@ -15,7 +15,7 @@ jobs:
       # https://stackoverflow.com/a/70447517
       run: |
         mkdir .ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rrr
+        cat "${{ secrets.SSH_PRIVATE_KEY }}" > .ssh/id_rrr
     - name: connect and pull
       run: ssh -i ~/.ssh/id_rrr ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
     - name: random stuff
